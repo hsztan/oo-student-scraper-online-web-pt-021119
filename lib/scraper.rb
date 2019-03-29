@@ -26,7 +26,7 @@ class Scraper
       student[:linkedin] = social.css("a")[1].values.first
       student[:github] = social.css("a")[2].values.first
       student[:blog] = social.css("a")[3].values.first
-    end
+    end unless doc.css(".social-icon-container").first.css("a").nil?
       student[:profile_quote] = doc.css(".profile-quote").text
       student[:bio] = doc.css(".bio-content.content-holder").css(".description-holder p").text
       student
